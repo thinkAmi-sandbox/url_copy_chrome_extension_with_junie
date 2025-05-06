@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Markdown URL Formatter",
+  "version": "1.0",
+  "description": "Copy the current page URL and title in markdown format with a keyboard shortcut",
+  "permissions": ["activeTab", "clipboardWrite", "commands", "scripting"],
+  "commands": {
+    "copy-markdown-url": {
+      "suggested_key": {
+        "default": "Ctrl+I",
+        "mac": "Command+I"
+      },
+      "description": "Copy current page URL in markdown format"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
